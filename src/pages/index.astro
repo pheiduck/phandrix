@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProfileLinks from '../components/ProfileLinks.astro';
+
+const links = [
+	{
+		title: "Element",
+		href: "@ph1l1p:matrix.org"		
+	},
+	{
+		title: "Github",
+		href: "https://github.com/pheiduck",
+	}
+]
+---
+
+<Layout title="Welcome to my Linktree.">
+	<main>
+		<div class="profile-image-container">
+			<img class="profile-image" width="200" height="200" src="https://avatars.githubusercontent.com/u/47042125?s=400&u=5cc011c67fd97547f0da4e9b8b1b0ebc40b4891d&v=4" />
+		</div>
+		<h1 class="text-center">@pheiduck</h1>
+		<p class="text-center">
+			This are my links blow, hope to see you soon!
+		</p>
+		<ul>
+			<!-- generate links -->
+			{links.map((links) => (<ProfileLinks {...links} />))}
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.text-center {
+		text-align: center;
+	}
+	.profile-image-container {
+		border-radius: 100%;
+		width: 200px;
+		display: block;
+		margin: 0 auto;	
+	}
+	.profile-image {
+		border-radius: 100%;
+		width: 200px;
+		display: block;
+		margin: 0 auto;		
+	}
+</style>

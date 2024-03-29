@@ -1,0 +1,27 @@
+name: Astro Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Setup Node
+        uses: actions/setup-node@main
+        with:
+          node-version: 'lts/*'
+          check-latest: true
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+
+      - name: npm run check
+        run: |
+          npm run check

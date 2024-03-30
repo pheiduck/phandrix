@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ProfileLinks from '../components/ProfileLinks.astro';
 import { Image } from 'astro:assets';
-import myImage from "../../public/profile.png";
+import profile from "../../public/profile.png";
 
 const links = [
 	{
@@ -27,7 +27,7 @@ const links = [
 <Layout title="Homepage for @pheiduck">
 	<main>
 		<div class="profile-image-container">
-			<Image class="profile-image" width="200" height="200" src={myImage} alt="profilebild" />
+			<Image class="profile-image" width="200" height="200" src={profile} alt="profilebild" />
 		</div>
 		<h1 class="text-center">@pheiduck</h1>
 		<p class="text-center">

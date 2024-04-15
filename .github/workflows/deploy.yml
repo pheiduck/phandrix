@@ -19,7 +19,8 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@main
         with:
-          node-version: lts/*
+          node-version: 'lts/*'
+          check-latest: true
 
   deploy:
     needs: build

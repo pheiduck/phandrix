@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@main
       - name: Install, build, and upload your site
         uses: withastro/action@main
+        with:
+          node-version: lts/*
 
   deploy:
     needs: build

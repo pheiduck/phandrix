@@ -20,6 +20,10 @@ jobs:
         uses: withastro/action@main
         with:
           node-version: 'lts/*'
+          check-latest: true
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
 
   deploy:
     needs: build

@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'https://pheiduck.github.io',
-  base: 'phandrix',
+  site: 'https://links.phandrix.de',
 })

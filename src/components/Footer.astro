@@ -8,3 +8,7 @@ const repo = "phandrix";
 <footer>
   <p>© {year}, <a href={`https://www.${platform}.com/${username}/${repo}/blob/main/LICENSE`}>LICENSE</a></p>
 </footer>
+
+<script is:inline>
+  document.getElementById("footer-year").innerText = new Date().getFullYear();
+</script>

@@ -1,9 +1,10 @@
 ---
+const year = new Date().getFullYear()
 const platform = "github";
 const username = "pheiduck";
 const repo = "phandrix";
 ---
 
 <footer>
-  <p>© {new Date().getFullYear()}, <a href={`https://www.${platform}.com/${username}/${repo}/blob/main/LICENSE`}>LICENSE</a></p>
+  <p>© {year}, <a href={`https://www.${platform}.com/${username}/${repo}/blob/main/LICENSE`}>LICENSE</a></p>
 </footer>

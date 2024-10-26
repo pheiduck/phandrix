@@ -24,6 +24,5 @@ jobs:
 
       - name: npm run check
         run: |
-          npm install -g --silent prettier@2.8.7 @astrojs/check
-          npm ci
+          npm install
           npm run check

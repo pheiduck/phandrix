@@ -24,6 +24,6 @@ jobs:
 
       - name: npm run check
         run: |
-          npm install @astrojs/check
+          npm install -g --silent @astrojs/check
           npm ci
           npm run check

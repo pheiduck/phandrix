@@ -19,10 +19,8 @@ jobs:
           node-version: 'lts/*'
           check-latest: true
           cache: 'npm'
-          cache-dependency-path: |
-            package-lock.json
 
       - name: npm run check
         run: |
-          npm install --silent
+          npm ci
           npm run check

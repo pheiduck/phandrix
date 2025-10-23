@@ -4,70 +4,58 @@ interface Props {
 	href: string;
 }
 
-const { title, href } = Astro.props;
-
-// Map URL to Dashboard Icon URLs
-function getIconUrl(url: string): string {
-  if (url.includes("github.com")) return "https://dashboardicons.com/icons/github";
-  if (url.includes("gitlab")) return "https://dashboardicons.com/icons/gitlab";
-  if (url.includes("discord")) return "https://dashboardicons.com/icons/discord";
-  if (url.includes("linkedin.com")) return "https://dashboardicons.com/icons/linkedin";
-  if (url.includes("youtube.com")) return "https://dashboardicons.com/icons/youtube";
-  if (url.includes("forum.manjaro.org")) return "https://dashboardicons.com/icons/manjaro";
-  return "https://dashboardicons.com/icons/default"; // fallback icon
-}
-
-const iconUrl = getIconUrl(href);
+const { href, title } = Astro.props;
 ---
 
 <li class="link-card">
-  <a href={href} target="_blank" rel="noopener noreferrer">
-    <h2>
-      <img src={iconUrl} alt={title} class="link-icon" />
-      {title}
-      <span>&rarr;</span>
-    </h2>
-  </a>
+	<a href={href}>
+		<h2>
+			{title}
+			<span>&rarr;</span>
+		</h2>
+	</a>
 </li>
-
 <style>
-.link-card {
-  list-style: none;
-  display: flex;
-  padding: 0.25rem;
-  background-color: #23262d;
-  border-radius: 0.6rem;
-  margin-bottom: 1rem;
-  transition: transform 0.2s ease-in-out;
-}
-.link-card:hover {
-  transform: scale(1.025);
-}
-.link-card > a {
-  width: 100%;
-  text-decoration: none;
-  line-height: 1.4;
-  padding: 1rem 1.3rem;
-  border-radius: 0.35rem;
-  color: white;
-  background-color: #23262d;
-  opacity: 0.8;
-  display: flex;
-  align-items: center;
-}
-h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.link-card:hover h2 {
-  color: rgb(var(--accent-light));
-}
-.link-icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 0.5rem;
-}
+	.link-card {
+		list-style: none;
+		display: flex;
+		padding: 0.25rem;
+		background-color: #23262d;
+		background-image: none;
+		background-size: 400%;
+		border-radius: 0.6rem;
+		background-position: 100%;
+        margin-bottom: 1rem;
+	}
+	.link-card > a {
+		width: 100%;
+		text-decoration: none;
+		line-height: 1.4;
+		padding: 1rem 1.3rem;
+		border-radius: 0.35rem;
+		color: white;
+		background-color: #23262d;
+		opacity: 0.8;
+	}
+	h2 {
+		margin: 0;
+		font-size: 1.25rem;
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	p {
+		margin-top: 0.5rem;
+		margin-bottom: 0;
+	}
+    /* animate the div to be 10px lager on hover */
+    .link-card:hover {
+        transform: scale(1.025);
+        transition: transform 0.2s ease-in-out;
+    }
+	.link-card:is(:hover, :focus-within) {
+		background-position: 0;
+		background: var(--accent-light);
+	}
+	.link-card:is(:hover, :focus-within) h2 {
+		color: rgb(var(--accent-light));
+	}
 </style>

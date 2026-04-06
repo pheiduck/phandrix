@@ -1,6 +1,7 @@
 name: NPM Update Bot 🤖
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * 1"
 
@@ -26,7 +27,7 @@ jobs:
         run: |
           npm install -g --silent npm-check-updates
           ncu -u
-          npm install --silent
+          npm install --silent --legacy-peer-deps
           git config --global user.name 'NPM Update Bot'
           git config --global user.email 'npmupbot@users.noreply.github.com'
           git add .

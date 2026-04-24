@@ -25,7 +25,7 @@ jobs:
       - name: Bot 🤖 "Updating NPM Packages..."
         run: |
           npm install -g --silent npm-check-updates
-          ncu -u --reject typescript
+          ncu -u
           npm install --silent
           git config --global user.name 'NPM Update Bot'
           git config --global user.email 'npmupbot@users.noreply.github.com'

@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   schedule:
-    - cron: "15 0 * * 1"
+    - cron: "15 0 * * 6"
   push:
     branches: [ main ]
 permissions:
